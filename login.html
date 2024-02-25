@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MakeMyCV</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      background: #f3f3f3;
+      flex-direction: column;
+      margin: 0;
+      background-image: url(https://airplhrd.com/core/member/Login-Page-Background.jpg);
+    }
+
+    h1 {
+      display: flex;
+      justify-content: center;
+      color: #4CAF50;
+    }
+
+    form {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 10px 20px;
+      transition: transform 0.2s;
+      width: 500px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      text-align: left;
+      color: #555;
+      font-weight: bold;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      background-color: #4CAF50;
+      width: 100%;
+      font-size: 16px;
+      -webkit-transition : all 200ms linear;
+      transition: all 200ms linear;
+      font-weight: 600;
+    }
+
+    button:hover{
+      background-color: #fff;
+      color: #4CAF50;
+      box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+    }
+  </style>
+</head>
+<body>
+
+  <form id="loginForm">
+    <h1>LOG IN</h1>
+    <label for="email">EMAIL:</label>
+    <input type="text" id="email" name="email" placeholder="Enter your Email" required>
+
+    <label for="password">PASSWORD:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+    <button type="button" onclick="authenticate()">Login</button>
+  </form>
+
+  <script>
+    function authenticate() {
+      var usernameInput = document.getElementById('email').value;
+      var passwordInput = document.getElementById('password').value;
+
+      // Vous pouvez remplacer cette vérification par une requête AJAX pour vérifier les données côté serveur.
+      // Pour cet exemple, je vais utiliser des données statiques stockées dans le localStorage.
+
+      var savedUsername = localStorage.getItem('email');
+      var savedPassword = localStorage.getItem('password');
+      // Stockage des données dans le localStorage (peut être placé dans une autre partie de votre application)
+localStorage.setItem('email', 'jnourfatane@gmail.com');
+localStorage.setItem('password', '123456789');
+
+
+      if (usernameInput === savedUsername && passwordInput === savedPassword) {
+        alert('Authentification réussie!');
+        // Rediriger vers la deuxième page
+        window.location.href = 'formulaire.html';
+      } else {
+        alert('Échec de l\'authentification. Veuillez vérifier vos informations.');
+      }
+    }
+  </script>
+
+</body>
+</html>

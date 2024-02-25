@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de CV</title>
+    <link rel="stylesheet" href="formulaire.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulaire de CV</h1>
+        <form action="#" method="post">
+            <label for="photo">TÉLÉCHARGER VOTRE PHOTO :</label>
+            <input type="file" id="photo" name="photo">
+
+            <label for="nom">NOM :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="prenom">PRÉNOM :</label>
+            <input type="text" id="prenom" name="prenom" required>
+
+            <label for="profil">PROFIL :</label>
+            <textarea id="profil" name="profil" required></textarea>
+
+            <label for="formation">FORMATION :</label>
+            <textarea id="formation" name="formation" required></textarea>
+
+            <label for="competences_comportementales">COMPÉTENCES COMPORTEMENTALES  :</label>
+            <textarea id="competences_comportementales" name="competences_comportementales" required></textarea>
+
+            <label for="competences_techniques">COMPÉTENCES TECHNIQUES :</label>
+            <textarea id="competences_techniques" name="competences_techniques" required></textarea>
+
+            <label for="experience_professionnelle">EXPÉRIENCE PROFESSIONNELLE :</label>
+            <textarea id="experience_professionnelle" name="experience_professionnelle" required></textarea>
+
+            <label for="langues">LANGUES :</label>
+            <textarea id="langues" name="langues" required></textarea>
+
+            <label for="centres_d’intérêt">CENTRES D’INTÉRÊT :</label>
+            <textarea id="centres_d’intérêt" name="centres_d’intérêt" required></textarea>
+
+            <label for="contact">CONTACT :</label>
+            <textarea id="contact" name="contact" required></textarea>
+
+            <input type="submit" value="Générer votre CV">
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById('cvForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var formData = {
+        nom: document.getElementById('nom').value,
+        prenom: document.getElementById('prenom').value,
+        profil: document.getElementById('profil').value,
+        formation: document.getElementById('formation').value,
+        competence_comportementales: document.getElementById('competences_comportementales').value,
+        competences_professionnelle: document.getElementById('competences_professionnelle').value,
+        experience_professionnelle: document.getElementById('experience_professionnelle').value,
+        langues: document.getElementById('langues').value,
+        centres_dintérêt: document.getElementById('centres_d’intérêt').value,
+        contact: document.getElementById('contact').value,
+      };
+
+      localStorage.setItem('formData', JSON.stringify(formData));
+
+      window.location.href = 'CV.html';
+    });
+  </script>
+</html>
